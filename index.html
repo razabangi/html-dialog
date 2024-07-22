@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dialog</title>
+    <style>
+        dialog::backdrop {
+            backdrop-filter: blur(4px);
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+
+        dialog {
+            border: none;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            max-width: 400px;
+            width: 100%;
+            margin: auto;
+            text-align: center;
+            background: #fff;
+            font-family: Arial, sans-serif;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        #open {
+            background-color: #007bff;
+            color: white;
+        }
+
+        #close {
+            background-color: #dc3545;
+            color: white;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="open">Open</button>
+    <dialog id="dialog">
+        <h2>Hello world</h2>
+        <button id="close">Close</button>
+    </dialog>
+</body>
+<script>
+    const dialog = document.getElementById("dialog");
+    const open = document.getElementById("open");
+    const close = document.getElementById("close");
+
+    open.addEventListener('click', function () {
+        dialog.showModal();
+    });
+
+    close.addEventListener('click', function () {
+        dialog.close();
+    });
+</script>
+
+</html>
